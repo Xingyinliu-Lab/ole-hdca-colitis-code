@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(protein,affinity,fill=ligand))+geom_col(position="dodge")+scale_y_log10()+theme_classic()
+ggsave(a[2],p)

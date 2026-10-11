@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(group,expression,colour=group))+geom_boxplot(outlier.shape=NA)+geom_point(position=position_jitter())+facet_wrap(~gene,scales="free_y")+theme_classic()
+ggsave(a[2],p)

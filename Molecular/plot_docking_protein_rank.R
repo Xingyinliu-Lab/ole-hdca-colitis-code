@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(reorder(protein,affinity),affinity,fill=protein))+geom_col()+coord_flip()+theme_classic()
+ggsave(a[2],p)

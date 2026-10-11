@@ -1,0 +1,6 @@
+library(ggplot2)
+library(ggrepel)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(log2_fold_change,-log10(p_value),colour=direction))+geom_point()+geom_text_repel(aes(label=label),na.rm=TRUE)+theme_classic()
+ggsave(a[2],p)

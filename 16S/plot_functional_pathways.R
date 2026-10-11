@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(effect,pathway,colour=significance,size=significance))+geom_point()+theme_classic()
+ggsave(a[2],p)

@@ -1,0 +1,7 @@
+library(igraph)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+g <- graph_from_data_frame(d[,c("source","target")],directed=FALSE)
+pdf(a[2])
+plot(g,edge.width=abs(E(g)$weight),vertex.label=V(g)$name)
+dev.off()

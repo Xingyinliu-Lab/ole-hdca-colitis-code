@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(x,y,colour=group))+geom_point()+geom_smooth(method="lm",se=FALSE)+theme_classic()
+ggsave(a[2],p)

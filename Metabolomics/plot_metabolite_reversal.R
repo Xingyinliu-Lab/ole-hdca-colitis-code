@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(disease_effect,treatment_effect,colour=class))+geom_point()+geom_hline(yintercept=0)+geom_vline(xintercept=0)+theme_classic()
+ggsave(a[2],p)

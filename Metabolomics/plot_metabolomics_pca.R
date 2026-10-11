@@ -1,0 +1,5 @@
+library(ggplot2)
+a <- commandArgs(trailingOnly=TRUE)
+d <- read.delim(a[1],check.names=FALSE)
+p <- ggplot(d,aes(PC1,PC2,colour=group,shape=group))+geom_point()+stat_ellipse()+theme_classic()
+ggsave(a[2],p)
